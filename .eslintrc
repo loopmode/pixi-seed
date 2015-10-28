@@ -31,6 +31,6 @@
     "no-func-assign": 2,
     "no-invalid-regexp": 2,
     "no-dupe-keys": 2,
-    "comma-dangle": [2, "never"]
+    "comma-dangle": [0, "never"]
   }
 }
