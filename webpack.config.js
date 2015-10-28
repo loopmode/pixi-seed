@@ -16,7 +16,7 @@ module.exports = {
     output: {
         path: buildDir,
         publicPath: '/',
-        filename: '[name.js'
+        filename: '[name].js'
     },
     node: {
         fs: 'empty'

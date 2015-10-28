@@ -5,6 +5,7 @@ import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from './webpack.config.js';
+import open from 'opn';
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 8080 : process.env.PORT;
@@ -32,7 +33,7 @@ if (isDeveloping) {
 }
 
 app.get('*', function response(req, res) {
-  res.sendFile(path.join(__dirname, config.output.path + '/index.html'));
+  res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
 app.listen(port, 'localhost', function onStart(err) {
@@ -40,4 +41,5 @@ app.listen(port, 'localhost', function onStart(err) {
     console.log(err);
   }
   console.info('==> 🌎 Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
+  setTimeout(() => open('http://localhost:' + port + '/'), 5000);
 });
